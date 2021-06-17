@@ -1,11 +1,11 @@
-pragma solidity ^0.5.13;
+pragma solidity ^0.8.1;
 
 contract StartStopUpdateExample {
     
-    address owner;
+    address public owner;
     
-    bool paused;
-    constructor() public {
+    bool public paused;
+    constructor() {
         owner = msg.sender;
     }
     
