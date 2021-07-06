@@ -1,4 +1,4 @@
-pragma solidity ^0.5.13;
+pragma solidity ^0.8.3;
 
 contract FunctionsExample {
     
@@ -6,8 +6,12 @@ contract FunctionsExample {
     
     address payable owner;
     
-    constructor() public {
-        owner = msg.sender;
+    constructor() {
+        owner = payable(msg.sender);
+    }
+    
+    receive() external payable {
+        recieveMoney();
     }
     
     function getOwner() public view returns(address) {
@@ -35,7 +39,5 @@ contract FunctionsExample {
         _to.transfer(_amount);
     }
     
-    function () external payable {
-        recieveMoney();
-    }
+
 }
